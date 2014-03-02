@@ -1,11 +1,13 @@
-var http = require('http');
-var fs = require('fs');
-var server = http.createServer();
+'use strict';
+/**
+ * Ilustra a criação de um servidor cuja resposta para os requests é uma
+ * stream de uma imagem (mongo.png).
+ */
 
-// server.on('request', function (req, res) {
-//  res.writeHead(200, {'Content-Type': 'text/plain'});
-//  res.end('hello world\n');
-// });
+
+var http = require('http'),
+    fs = require('fs'),
+    server = http.createServer();
 
 server.on('request', function (req, res) {
     res.writeHead(200, {'Content-Type': 'image/png'});
