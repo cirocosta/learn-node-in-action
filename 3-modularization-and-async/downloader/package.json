@@ -1,0 +1,14 @@
+{
+  "name": "downloader",
+  "version": "0.0.0",
+  "description": "Downloads a bunch of files and then, when it is finalized, do what it has to with each",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ciro S. Costa",
+  "license": "MIT",
+  "dependencies": {
+    "async": "~0.2"
+  }
+}
