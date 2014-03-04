@@ -1,0 +1,15 @@
+{
+  "name": "6-connect",
+  "version": "0.0.0",
+  "description": "framework that uses modular components, the middlewares - functions that intercepts request and response objects, executes logic and then ends or sends it to another middleware.",
+  "main": "index.js",
+  "dependencies": {
+    "connect": "~2.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ciro S. Costa",
+  "license": "MIT"
+}
