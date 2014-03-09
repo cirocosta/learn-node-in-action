@@ -1,5 +1,5 @@
-var connect = require('connect'),
-    app = connect();
+var connect = require('connect');
+var app = connect();
 
 
 app
