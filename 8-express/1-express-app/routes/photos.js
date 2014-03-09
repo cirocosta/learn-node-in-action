@@ -5,6 +5,11 @@
 // that we always have something that app.locals exposes. It is the
 // `settings` object, which contains everything that we have defined
 // with the app.set at app.js.
+
+var join = require('path').join;
+var fs = require('fs');
+var Photo = require('../models/Photo');
+
 var photos = [];
 
 photos.push({
@@ -51,6 +56,38 @@ exports.form = function (req, res) {
     });
 };
 
-// exports.submit = function (req, res) {
+exports.submit = function (dir) {
 
-// };
+    return function (req, res, next) {
+
+        // req.files and also req.body are provided by the bodyParser
+        // middleware.
+
+        var img = req.files.photo.image;
+        var name = req.body.photo.name || img.name;
+        var path = join(dir, img.name);
+
+        // asynchronous function to rename. takes oldPath, newPath and
+        // callback.
+        fs.rename(img.path, path, function (err) {
+            if (err) return next(err);
+
+            // creating an instance of Photo and then inserting it to
+            // the database. The callback will return with an err if an
+            // error occurred while inserting and also the full document
+            // inserted.
+
+            Photo.create({
+                name: name,
+                path: img.name
+            }, function (err, photo) {
+                if (err) return next(err);
+
+                // performing http redirect to the index page.
+
+                res.redirect('/');
+            });
+        });
+
+    };
+};

@@ -77,7 +77,7 @@ if ('development' == app.get('env')) {
 // app.get('/users', user.list);
 app.get('/', photos.list);
 app.get('/upload', photos.form);
-// app.post('/upload', photos.submit(app.get('photos')));
+app.post('/upload', photos.submit(app.get('photos')));
 
 
 http.createServer(app).listen(app.get('port'), function(){
