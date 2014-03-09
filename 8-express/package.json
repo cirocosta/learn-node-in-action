@@ -10,5 +10,8 @@
   "license": "MIT",
   "devDependencies": {
     "express": "~3.5.0"
+  },
+  "dependencies": {
+    "mongoose": "~3.8.8"
   }
 }
