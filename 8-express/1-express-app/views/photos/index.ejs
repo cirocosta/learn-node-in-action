@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+       EJS template engine will output escaped values by using the
+       following. Notice that it just differs to the vanilla JS by
+       the use of the equal sign.
+    -->
+    <title><%= title %></title>
+</head>
+<body>
+
+<h1>Photos</h1>
+<p>Express stock photo application.</p>
+
+<div id="photos">
+    <!--
+        Here we are, then, using a vanilla JS code by not using equal
+        sign.
+    -->
+    <%photos.forEach(function (photo) { %>
+        <div class="photo">
+            <h2><%=photo.name%></h2>
+            <img src="<%=photo.path%>">
+        </div>
+    <% }) %>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "8-express",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ciro S. Costa",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "~3.5.0"
+  }
+}
