@@ -44,4 +44,13 @@ exports.list = function (req, res) {
 // simple way to expose existing objects as local variables.
 //
 // @see http://expressjs.com/3x/api.html#app.locals
-//
+
+exports.form = function (req, res) {
+    res.render('photos/upload', {
+        title: 'Photo upload'
+    });
+};
+
+// exports.submit = function (req, res) {
+
+// };
