@@ -4,25 +4,37 @@
  * middlewares.
  */
 
-
-
-
+// importing what we'll need to create a server with some cool
+// middlewares.
 var connect = require('connect'),
-    app = connect();
+    app = connect(),
+    // cookie-parser middleware
+    cookieParser = require('cookie-parser'),
+    // parser querystrings
+    qs = require('qs'),
+    // returns a middleware that parses both json and urlencoded. It
+    // also has a limit option so that we are able to limit body size
+    // for these two types of data.
+    bodyParser = require('body-parser'),
+    // gets the entire buffer of a stream and then validates the streams
+    // length against an expected length and maximum limit.
+    getRawBody = require('raw-body');
+
+
 
     // parse the cookie requests
-app.use(connect.cookieParser('tobi is a cool ferret'))
+app.use(cookieParser('tobi is a cool ferret'))
     // limit the body handling based on a limit of the size
-    .use(typeLimiting(
-         'application/x-www-form-urlencoded', connect.limit('64kb')))
-    .use(typeLimiting(
-         'application/json', connect.limit('32kb')))
-    .use(typeLimiting(
-         'image', connect.limit('2mb')))
+    // .use(typeLimiting(
+    //      'application/x-www-form-urlencoded', connect.limit('64kb')))
+    // .use(typeLimiting(
+    //      'application/json', connect.limit('32kb')))
+    // .use(typeLimiting(
+    //      'image', connect.limit('2mb')))
     // parse GET requests
-    .use(connect.query())
+    // .use(qs())
     // parse POST bodys
-    .use(connect.bodyParser())
+    .use(bodyParser())
     .use(function (req, res, next) {
         if (req.body.username) {
             console.log("User " + req.body.username +

@@ -7,10 +7,13 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 
+// app specific requires
 
 var routes = require('./routes');
 var user = require('./routes/user');
 var photos = require('./routes/photos');
+
+// instantiating an express app
 
 var app = express();
 
@@ -76,6 +79,7 @@ if ('development' == app.get('env')) {
 // app.get('/', routes.index);
 // app.get('/users', user.list);
 app.get('/', photos.list);
+app.get('/dummy_list', photos.dummy_list);
 app.get('/upload', photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
 

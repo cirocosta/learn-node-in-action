@@ -11,6 +11,10 @@
  * collection can have differente fields; tipically the documents of a
  * collection just share a similar or related purpose and one or more
  * indexes.
+ *
+ * Here we are using the pure mongodb driver, which can be found here
+ * https://github.com/mongodb/node-mongodb-native. For an example of how
+ * to use mongoose, a mongodb ODM, see 1-mongoose-sample.js.
  */
 
 var MongoClient = require('mongodb').MongoClient;

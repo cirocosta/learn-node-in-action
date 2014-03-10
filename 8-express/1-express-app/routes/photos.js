@@ -25,7 +25,7 @@ photos.push({
 // Route functions, identical to regular Connect middleware functions,
 // accepts request and response objects, as well as the next() callback
 // function (not used here).
-exports.list = function (req, res) {
+exports.dummy_list = function (req, res, next) {
     // it will render the view 'photos' (remember that it can be a
     // directory and, if it is, it will search for the index.html within
     // it) passing the data object that contains title and the photos
@@ -90,4 +90,16 @@ exports.submit = function (dir) {
         });
 
     };
+};
+
+exports.list = function (req, res, next) {
+    Photo.find({}, function (err, photos) {
+
+        if (err) return next(err);
+        res.render('photos', {
+            title: 'Photos',
+            photos: photos
+        });
+
+    });
 };

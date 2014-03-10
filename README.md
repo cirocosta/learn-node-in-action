@@ -28,6 +28,9 @@ What you'll see further is all things that i've done based on the book. The sect
 |      12 |     |         |
 
 
+Each section folder will contain a `README` explaining the core thinks that the section has and also a separate `package.json` file.
+
+
 ## Disclaimer
 
 This is under constant production :bowtie:
