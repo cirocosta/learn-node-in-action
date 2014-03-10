@@ -59,8 +59,9 @@ app.set('photos', __dirname + '/public/photos');
 // an optional mount `path` (which defaults to '/'). This is essentially
 // the `connect` that we used previously.
 
-app.use(express.favicon());
+// app.use(express.favicon());
 app.use(express.logger('dev'));
+app.use(express.multipart({uploadDir: app.get('photos')}));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
@@ -82,7 +83,7 @@ app.get('/', photos.list);
 app.get('/dummy_list', photos.dummy_list);
 app.get('/upload', photos.form);
 app.post('/upload', photos.submit(app.get('photos')));
-
+app.get('/photo/:id/download', photos.download(app.get('photos')));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

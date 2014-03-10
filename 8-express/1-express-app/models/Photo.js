@@ -28,4 +28,9 @@ var schema = new mongoose.Schema({
 // `represents documents, which can be saved and retreived from our
 // `database.
 
+// ps.: Notice that it wont save the 'Photo' collection in the Database.
+// It will be 'photo' (check it using the mongo shell:
+// > use photo_app
+// > db.getCollectionName()
+// [ "photos ", "system.indexes"]
 module.exports = mongoose.model('Photo', schema);
