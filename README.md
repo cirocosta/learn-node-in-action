@@ -11,21 +11,21 @@ What you'll see further is all things that i've done based on the book. The sect
 
 ## Contents
 
-| Section |  Ok |                       Content                       |
-| ------- | --- | --------------------------------------------------- |
-|       0 |     |                                                     |
-|       1 |     |                                                     |
-|       2 |     |                                                     |
-|       3 |     |                                                     |
-|       4 |     |                                                     |
-|       5 |     |                                                     |
-|       6 |     |                                                     |
-|       7 |     |                                                     |
-|       8 | x   | Express application + common web development tasks. |
-|       9 |     |                                                     |
-|      10 |     |                                                     |
-|      11 |     |                                                     |
-|      12 |     |                                                     |
+| Section |  Ok |                        Content                         |
+| ------- | --- | ------------------------------------------------------ |
+|       0 |     | Illustrates and explains a minimal app using socket.io |
+|       1 |     | Basic overview on Streams                              |
+|       2 |     | Sample app using socket.io and http module             |
+|       3 |     | Modularization in NodeJS (module.exports and exports)  |
+|       4 |     |                                                        |
+|       5 |     | Overview on RMDBS, Redis, MongoDB and Mongoose         |
+|       6 |     | Getting started with Connect                           |
+|       7 |     | More on Connect middlewares                            |
+|       8 | x   | Express application + common web development tasks.    |
+|       9 |     |                                                        |
+|      10 |     |                                                        |
+|      11 |     |                                                        |
+|      12 |     |                                                        |
 
 
 Each section folder will contain a `README` explaining the core thinks that the section has and also a separate `package.json` file.
