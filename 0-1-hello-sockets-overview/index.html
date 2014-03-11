@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>s.IO server</title>
+</head>
+<body>
+
+<h1>Hello <i>Magic</i> Sockets!</h1>
+
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+<script>
+    // here we'll initialize the socket.io client code. It will, then,
+    // decide on the transport to utilize to connect. That's because
+    // socketio aims to bring a websocket-like api to many browsers and
+    // devices (multi-transport support).
+
+
+    // making a connection from this browser to the socketio server that is configure for the following url
+    var socket = io.connect('http://localhost:3000');
+
+    // performing the connection, a simple HTTP  handshake will then
+    // take place. If successful, will result in the client receiving a
+    // session id, a number of seconds within which a heartbeat is
+    // expected (the heartbeat timeout) and the number of seconds after
+    // the transport connection is closed when then socket is considered
+    // disconnected if the transport connection is not reopened.
+
+
+    // register this client to listen to the 'news' event.
+    socket.on('news', function (data) {
+        console.log(data);
+        // emit this event 'my other event' with the data to send `{my: 'data'}`
+        socket.emit('my other event', { my: 'data' });
+    });
+</script>
+</body>
+</html>
