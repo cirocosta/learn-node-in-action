@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+// routing the '/' endpoint to a get
 app.get('/', function (req, res) {
     res.send('Hello');
 });

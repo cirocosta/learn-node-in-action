@@ -21,14 +21,13 @@ var app = express();
 // express has five methods driven by the NODE_ENV environment variable.
 // app.configure, app.set, app.get, app.enable, app.disable.
 
-// 1 -  app.configure([env], callback) takes a string, indicating the
-// what we get by doing app.get('env'), i.e, process.env.NODE_ENV. It is
-// just a `if` statement. Not necessary (use just like it is here,
-// without it :P)
+// 1 -  app.configure([env], callback) is a deprecated method which
+// invokes a callback based on what is matched by doing an
+// app.get('env').
 
 // 2 -  app.set(name, value) assigns setting `name` to `value`
 
-// 3 -  app.get(name) getts the setting `name` value.
+// 3 -  app.get(name) gets the setting `name` value.
 
 // 4 -  app.enable(name) sets the setting `name` to true, so that if we
 // do `app.get(name)` it will return true.
@@ -42,13 +41,12 @@ var app = express();
 // is 'view cache'. It is not enabled by default in dev as it requires
 // restarting the server to edit the template files.
 
-// all environments
 app.set('port', process.env.PORT || 3000);
 // specifying the directory that express will use during view lookup.
 app.set('views', path.join(__dirname, 'views'));
 // here we are telling that the view engine is ejs and then the views
 // that we reference when rendering then will all be sufixed with the
-// .ejs extension. This is necessary because express lets us to use
+// .ejs extension. This is necessary because express lets us use
 // multiple template engines if we want. It is basically a settings for
 // the default engine extension to use when omitted.
 app.set('view engine', 'ejs');
@@ -65,6 +63,8 @@ app.use(express.multipart({uploadDir: app.get('photos')}));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+// the middleware to run our routes. It will invoke those callbacks that
+// we'll specify later with `app.VERB`.
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
